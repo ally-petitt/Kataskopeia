@@ -7,11 +7,7 @@
   "action": {
     "default_popup": "popup/popup.html"
   },
-  "background": {
-    "service_worker": "service_worker.js",
-    "type": "module"
-  },
-
+  "permissions": ["system.cpu"],
   "author": "allypetitt@proton.me",  
   "homepage_url": "https://github.com/ally-petitt/Kataskopeia",
   "options_page": "options.html",
