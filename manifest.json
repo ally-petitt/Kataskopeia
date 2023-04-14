@@ -1,0 +1,20 @@
+{
+  "manifest_version":  3,
+  "name": "Kataskopeia",
+  "description":"PoC to demonstrate the information security of chrome extensions and the amount of data that they can collect in a safe way.",
+  "version": "0.1",
+
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  },
+
+  "author": "allypetitt@proton.me",  
+  "homepage_url": "https://github.com/ally-petitt/Kataskopeia",
+  "options_page": "options.html",
+  "short_name": "Kataskopeia",
+  "version_name": "0.1 beta"
+}
