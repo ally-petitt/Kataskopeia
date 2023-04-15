@@ -1,11 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-font: 'Rajdhani', sans-serif;
+    --secondary-font: 'PT Sans', sans-serif;
+}
+
+
 * {
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: var(--primary-font)
+}
+
+body {
+    padding: 15px;
+    min-width: 300px;
+}
+
+h5 {
+    font-family: var(--secondary-font)
+}
+
+h1, h5 {
+    text-align: center;
+}
+
+button {
+    border-radius: 3px;
+    background-color: #a3e982;
+    padding: 4px;
+    font-family: var(--secondary-font);
+}
+
+.option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 
 #dataOutput {
-    overflow-y: auto; 
+    margin-top: 10px;
+    overflow-y:scroll;
     width: 100%;
-  }
+    max-height: 200px;
+}
+
+

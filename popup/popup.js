@@ -22,13 +22,13 @@ async function handleBtnClick(e) {
     switch(e.target.id){
 
         case 'cpuInfo': info = await cd.toggleCPUInfo()
-        
+
     }
     
 
     if (info) {
         
-        outputEl.innerText = JSON.stringify(info)
+        outputEl.innerText = JSON.stringify(info,null, 2)
         return
     }
     
@@ -48,7 +48,7 @@ function toggleButton(e) {
 
     e.target.innerText = 'Shown'
 
-    // Make sure that only one element hass the classname "show"
+    // Make sure that only one element has the classname "show"
     Array.from(document.getElementsByClassName('show')).forEach((el) => {
         el.classList.remove('show')
     })

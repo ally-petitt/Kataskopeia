@@ -1,24 +1,24 @@
 class CollectData {
     constructor(state = new Object) {
         this.state = state
-        this.state.activeData = "test"
     }    
 
 	async toggleCPUInfo(){
         this.state.cpuInfo = !this.state.cpuInfo
+        let data
 
 
         if (!this.state.cpuInfo){
-            this.state.activeData = null
+            data = null
 
         } else {
 
             const info = await chrome.system.cpu.getInfo()
-            this.state.activeData = info
+            data = info
         }
 
 
-        return this.state.activeData
+        return data
 	}
 
 
