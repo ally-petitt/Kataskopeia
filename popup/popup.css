@@ -31,6 +31,7 @@ button {
     background-color: #a3e982;
     padding: 4px;
     font-family: var(--secondary-font);
+    cursor: pointer;
 }
 
 .option {

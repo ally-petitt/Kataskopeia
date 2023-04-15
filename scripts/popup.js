@@ -1,4 +1,4 @@
-import { CollectData } from '../scripts/collect_data.js'
+import { CollectData } from './collect_data.js'
 
 
 const cd = new CollectData();
@@ -41,12 +41,12 @@ function toggleButton(e) {
         
     // remove the classname "show" if it already has it and update the text
     if (e.target.classList.contains("show")) {
-        e.target.innerText = 'Hidden'
+        e.target.innerText = 'Show'
         e.target.classList.remove('show')
         return
     }
 
-    e.target.innerText = 'Shown'
+    e.target.innerText = 'Hide'
 
     // Make sure that only one element has the classname "show"
     Array.from(document.getElementsByClassName('show')).forEach((el) => {

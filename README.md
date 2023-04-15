@@ -11,6 +11,6 @@ Kataskopeia (the Greek word for "espionage") is made as an experiment to explore
 ## To Be Added
 
 This is the general idea of the Chrome extension:
-* Allow user to toggle which data they want to allow to be collected on them.
-* Store the data in a file on their **local** machine (no command and control center) so they can view it on their own.
-* Allow them to set a file/directory to store data in within `options.html`.
+* Allow user to toggle which data they want the extension to show.
+* Display the data in JSON format in a window at the bottom of the Chrome extension popup.
+* Absolutely no data will be collected/stored.
