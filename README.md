@@ -8,9 +8,20 @@ If I was an evil person and I got you to download my Chrome extension, exactly h
 
 Kataskopeia (the Greek word for "espionage") is made as an experiment to explore the threat landscape of Chrome extensions and demonstrate the potential security concerns when downloading them.
 
-## To Be Added
+## How It Works
 
 This is the general idea of the Chrome extension:
 * Allow user to toggle which data they want the extension to show.
 * Display the data in JSON format in a window at the bottom of the Chrome extension popup.
-* Absolutely no data will be collected/stored.
+* Absolutely no data will be collected/stored by Kataskopeia.
+
+## Installation Steps
+
+1. Clone the repository
+```
+git clone https://github.com/ally-petitt/Kataskopeia.git
+```
+2. Navigate to `chrome://extensions` in your chrome (or similar) browser.
+3. Enable developer mode and select "Load Unpacked".
+4. Load in the `Katascopeia` folder.
+5. Enable the extension if it's not already and enjoy!

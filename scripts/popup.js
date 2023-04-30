@@ -21,7 +21,8 @@ async function handleBtnClick(e) {
 
     switch(e.target.id){
 
-        case 'cpuInfo': info = await cd.toggleCPUInfo()
+        case 'cpuInfo': info = await cd.getCPUInfo()
+        // case 'storageInfo': info = await cd.getStorageInfo()
 
     }
     
@@ -38,21 +39,16 @@ async function handleBtnClick(e) {
 
 
 function toggleButton(e) {
+    const outputEl = document.getElementById('dataOutput')
         
-    // remove the classname "show" if it already has it and update the text
-    if (e.target.classList.contains("show")) {
+    if (e.target.innerText == 'Hide') {
         e.target.innerText = 'Show'
-        e.target.classList.remove('show')
-        return
+        outputEl.classList.add('d-none')
+        return 
     }
 
     e.target.innerText = 'Hide'
-
-    // Make sure that only one element has the classname "show"
-    Array.from(document.getElementsByClassName('show')).forEach((el) => {
-        el.classList.remove('show')
-    })
-    e.target.classList.add('show')
-
+    outputEl.classList.remove('d-none')
+    return
 
 }
