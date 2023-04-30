@@ -25,8 +25,8 @@ class CollectData {
         }    
     }
 
-    async getTabInfo() {
-        // return await chrome.tabs.getAllInWindow()
+    async getTabsInfo() {
+        return await chrome.tabs.query({})
     }
 
     async getWindowsInfo() {
