@@ -1,25 +1,17 @@
 class CollectData {
     constructor(state = new Object) {
-        this.state = state
+        // this.state = state
     }    
 
-	async toggleCPUInfo(){
-        this.state.cpuInfo = !this.state.cpuInfo
-        let data
+	async getCPUInfo(){
 
-
-        if (!this.state.cpuInfo){
-            data = null
-
-        } else {
-
-            const info = await chrome.system.cpu.getInfo()
-            data = info
-        }
-
-
-        return data
+        return await chrome.system.cpu.getInfo()
 	}
+
+    async getStorageInfo(){
+        // add other info to this
+        return await chrome.system.storage.getInfo()
+    }
 
 
 }

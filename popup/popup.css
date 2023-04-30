@@ -42,6 +42,10 @@ button {
     margin-bottom: 5px;
 }
 
+.d-none {
+    display:none;
+}
+
 
 #dataOutput {
     margin-top: 10px;
