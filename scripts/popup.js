@@ -10,13 +10,9 @@ function setEventListeners() {
     const cpuInfo = document.getElementById('cpuInfo');
     const storageInfo = document.getElementById('storageInfo');
 
-    // storageInfo.addEventListener("click", handleBtnClick)
-    // cpuInfo.addEventListener("click", handleBtnClick)
     let optionsEls = [ ...document.getElementById('optionsSection').getElementsByClassName('option') ]
-    console.log(optionsEls)
 
     optionsEls.forEach((el) => {
-        console.log(el)
 
         const optionButton = el.getElementsByTagName('button')[0]
         optionButton.addEventListener("click", handleBtnClick)
