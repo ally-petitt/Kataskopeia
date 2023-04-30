@@ -8,8 +8,15 @@ window.onload = () => { setEventListeners() }
 
 function setEventListeners() {
     const cpuInfo = document.getElementById('cpuInfo');
+    const storageInfo = document.getElementById('storageInfo');
 
-    cpuInfo.addEventListener("click", handleBtnClick)
+    let optionsEls = [ ...document.getElementById('optionsSection').getElementsByClassName('option') ]
+
+    optionsEls.forEach((el) => {
+
+        const optionButton = el.getElementsByTagName('button')[0]
+        optionButton.addEventListener("click", handleBtnClick)
+    })
 }
 
 
@@ -21,8 +28,12 @@ async function handleBtnClick(e) {
 
     switch(e.target.id){
 
-        case 'cpuInfo': info = await cd.getCPUInfo()
-        // case 'storageInfo': info = await cd.getStorageInfo()
+        case 'cpuInfo': 
+            info = await cd.getCPUInfo();
+            break;
+        case 'storageInfo': 
+            case 'storageInfo': info = await cd.getStorageInfo()
+            break;
 
     }
     
@@ -43,10 +54,18 @@ function toggleButton(e) {
         
     if (e.target.innerText == 'Hide') {
         e.target.innerText = 'Show'
+
         outputEl.classList.add('d-none')
         return 
     }
 
+    // change any buttons that say "Hide" to "Show"
+    const optionBtns = [...document.getElementsByClassName("optionBtn")]
+    optionBtns.forEach(el => {
+        if (el.innerText != "Show") el.innerText = "Show"
+    })
+
+    // change the text of the button cooresponding with the info being shown to "Hide"
     e.target.innerText = 'Hide'
     outputEl.classList.remove('d-none')
     return
