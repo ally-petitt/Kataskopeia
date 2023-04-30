@@ -15,6 +15,11 @@ This is the general idea of the Chrome extension:
 * Display the data in JSON format in a window at the bottom of the Chrome extension popup.
 * Absolutely no data will be collected/stored by Kataskopeia.
 
+
+Note that some data collection features of the APIs were left out. If you would like to learn
+more about the Chrome APIs and the information that they can collect, reference the 
+official documentation (here)[https://developer.chrome.com/docs/extensions/reference/].
+
 ## Installation Steps
 
 1. Clone the repository
