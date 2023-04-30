@@ -14,6 +14,18 @@ class CollectData {
         return await chrome.system.memory.getInfo()
     }
 
+    async getDisplayInfo() {
+        const info = await chrome.system.display.getInfo()
+        try {
+            const displayLayout = await chrome.system.display.getDisplayLayout()
+            return info + displayLayout
+        } catch {
+            return info
+        }    
+    }
+
+    
+
 }
 
 export { CollectData }
