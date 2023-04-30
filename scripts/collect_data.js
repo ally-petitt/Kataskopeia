@@ -4,13 +4,16 @@ class CollectData {
     }    
 
 	async getCPUInfo(){
-
+        console.log('cpu')
         return await chrome.system.cpu.getInfo()
 	}
 
     async getStorageInfo(){
         // add other info to this
-        return await chrome.system.storage.getInfo()
+        // let info = await chrome.system.storage.getInfo()
+        // console.log(info)
+        console.log('storage')
+        return {'test': "test2"}
     }
 
 

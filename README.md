@@ -23,5 +23,5 @@ git clone https://github.com/ally-petitt/Kataskopeia.git
 ```
 2. Navigate to `chrome://extensions` in your chrome (or similar) browser.
 3. Enable developer mode and select "Load Unpacked".
-4. Load in the `Katascopeia` folder.
+4. Load in the `Kataskopeia` folder.
 5. Enable the extension if it's not already and enjoy!
