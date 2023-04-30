@@ -40,14 +40,19 @@ async function handleBtnClick(e) {
         case 'displayInfo':
             case 'displayInfo': info = await cd.getDisplayInfo()
             break;
+        case 'tabsInfo':
+            case 'tabsInfo': info = await cd.getTabsInfo()
+            break;
+        case 'windowsInfo':
+            case 'windowsInfo': info = await cd.getWindowsInfo()
+            break;
 
 
     }
     
 
     if (info) {
-        
-        outputEl.innerText = JSON.stringify(info,null, 2)
+        outputEl.innerHTML = "<pre>" + JSON.stringify(info,null, '\t') + "</pre>"
         return
     }
     

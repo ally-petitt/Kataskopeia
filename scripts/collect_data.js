@@ -17,6 +17,7 @@ class CollectData {
     async getDisplayInfo() {
         const info = await chrome.system.display.getInfo()
         try {
+            // only works on 
             const displayLayout = await chrome.system.display.getDisplayLayout()
             return info + displayLayout
         } catch {
@@ -24,7 +25,14 @@ class CollectData {
         }    
     }
 
-    
+    async getTabInfo() {
+        // return await chrome.tabs.getAllInWindow()
+    }
+
+    async getWindowsInfo() {
+        return await chrome.windows.getAll({ "populate" :true })
+    }
+
 
 }
 
