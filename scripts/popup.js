@@ -34,6 +34,10 @@ async function handleBtnClick(e) {
         case 'storageInfo': 
             case 'storageInfo': info = await cd.getStorageInfo()
             break;
+        case 'memoryInfo':
+            case 'memoryInfo': info = await cd.getMemoryInfo()
+            break;
+            
 
     }
     

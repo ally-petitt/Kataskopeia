@@ -10,6 +10,9 @@ class CollectData {
         return await chrome.system.storage.getInfo()
     }
 
+    async getMemoryInfo() {
+        return await chrome.system.memory.getInfo()
+    }
 
 }
 

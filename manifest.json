@@ -7,7 +7,7 @@
   "action": {
     "default_popup": "popup/popup.html"
   },
-  "permissions": ["system.cpu", "system.storage"],
+  "permissions": ["system.cpu", "system.storage", "system.memory"],
   "author": "allypetitt@proton.me",  
   "homepage_url": "https://github.com/ally-petitt/Kataskopeia",
   "options_page": "options.html",
