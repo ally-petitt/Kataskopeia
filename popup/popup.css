@@ -58,9 +58,9 @@ button {
 #dataOutput {
     margin-top: 10px;
     overflow-y: scroll;
-    width: 100%;
     max-height: 200px;
-    max-width: 270px;
+    min-width: 300px;
+    max-width: 300px;
 }
 
 

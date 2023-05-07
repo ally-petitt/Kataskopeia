@@ -1,21 +1,19 @@
-import SelectData from './select_data.js'
+import SelectData from './data_scripts/select_data.js'
 
 
 // load HTML options and event listeners for them
 document.addEventListener("DOMContentLoaded", loadUserOptions)
-// window.onload = () => { setEventListeners() }
 
 
 function loadUserOptions() {
 
     const options = [
-        "cpu", "storage", "memory", "display", "tabs", "syncedDevices",
-        "closedTabs"
+        "cpu", "storage", "memory", "display", "tabs", "synced-devices",
+        "closed-tabs"
     ]
 
     options.forEach(option => {
         const userOption = createUserOption(option)
-        console.log(userOption)
         document.getElementById('optionsSection').appendChild(userOption)
     })
 }
@@ -36,15 +34,19 @@ function createUserOption(option) {
 }
 
 
-function capitalizeFirstLetter(word) {
-    return word[0].toUpperCase() + word.substr(1);
+function formatOption(option) {
+    let words = option.split('-')
+    let wordsFormatted = []
+
+    words.forEach(word => wordsFormatted.push(word[0].toUpperCase() + word.substr(1)))
+    return wordsFormatted.join(' ')
 }
 
 
 function createLabel(option) {
     const label = document.createElement("label")
     label.for = option
-    label.textContent = "Show " + capitalizeFirstLetter(option) + " Information" 
+    label.textContent = "Show " + formatOption(option) + " Information" 
 
     return label
 }
@@ -59,18 +61,6 @@ function createBtn(option) {
 
     return btn
 }
-
-
-// function setEventListeners() {
-
-//     let optionsEls = [ ...document.getElementById('optionsSection').getElementsByClassName('option') ]
-
-//     optionsEls.forEach(el => {
-
-//         const optionButton = el.getElementsByTagName('button')[0]
-//         optionButton.addEventListener("click", handleBtnClick)
-//     })
-// }
 
 
 async function handleBtnClick(e) {
