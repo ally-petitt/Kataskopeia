@@ -18,7 +18,7 @@ This is the general idea of the Chrome extension:
 
 Note that some data collection features of the APIs were left out. If you would like to learn
 more about the Chrome APIs and the information that they can collect, reference the 
-official documentation (here)[https://developer.chrome.com/docs/extensions/reference/].
+official documentation [here](https://developer.chrome.com/docs/extensions/reference/).
 
 ## Installation Steps
 

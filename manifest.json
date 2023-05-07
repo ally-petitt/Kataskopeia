@@ -8,7 +8,7 @@
     "default_popup": "popup/popup.html"
   },
   "permissions": ["system.cpu", "system.storage", "system.memory", "system.display",
-                    "tabs", "windows"],
+                    "tabs", "windows", "sessions"],
   "author": "allypetitt@proton.me",  
   "homepage_url": "https://github.com/ally-petitt/Kataskopeia",
   "options_page": "options.html",

@@ -17,7 +17,7 @@ class CollectData {
     async getDisplayInfo() {
         const info = await chrome.system.display.getInfo()
         try {
-            // only works on 
+            // only works on Chrome OS
             const displayLayout = await chrome.system.display.getDisplayLayout()
             return info + displayLayout
         } catch {
@@ -31,6 +31,14 @@ class CollectData {
 
     async getWindowsInfo() {
         return await chrome.windows.getAll({ "populate" :true })
+    }
+
+    async getSyncedDevicesInfo() {
+        return await chrome.sessions.getDevices()
+    }
+    
+    async getRecentlyClosedTabs() {
+        return await chrome.sessions.getRecentlyClosed()
     }
 
 

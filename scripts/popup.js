@@ -32,31 +32,38 @@ async function handleBtnClick(e) {
             info = await cd.getCPUInfo();
             break;
         case 'storageInfo': 
-            case 'storageInfo': info = await cd.getStorageInfo()
+            info = await cd.getStorageInfo()
             break;
         case 'memoryInfo':
-            case 'memoryInfo': info = await cd.getMemoryInfo()
+            info = await cd.getMemoryInfo()
             break;
         case 'displayInfo':
-            case 'displayInfo': info = await cd.getDisplayInfo()
+            info = await cd.getDisplayInfo()
             break;
         case 'tabsInfo':
-            case 'tabsInfo': info = await cd.getTabsInfo()
+            info = await cd.getTabsInfo()
             break;
         case 'windowsInfo':
-            case 'windowsInfo': info = await cd.getWindowsInfo()
+            info = await cd.getWindowsInfo()
             break;
-
+        case 'syncedDevicesInfo':
+            info = await cd.getSyncedDevicesInfo()
+            break;
+        case 'syncedDevicesInfo':
+            info = await cd.getRecentlyClosedTabs()
+            break;
 
     }
     
+    console.log('info')
+    console.log(info)
 
     if (info) {
         outputEl.innerHTML = "<pre>" + JSON.stringify(info,null, '\t') + "</pre>"
         return
     }
     
-    outputEl.innerText = ""
+    outputEl.textContent = "No information returned"
     
 }
 
@@ -64,22 +71,24 @@ async function handleBtnClick(e) {
 function toggleButton(e) {
     const outputEl = document.getElementById('dataOutput')
         
-    if (e.target.innerText == 'Hide') {
-        e.target.innerText = 'Show'
+    if (e.target.textContent == 'Hide') {
 
+        e.target.textContent = 'Show'
         outputEl.classList.add('d-none')
         return 
     }
 
-    // change any buttons that say "Hide" to "Show"
+
+    hideAllElements()
+
+    e.target.textContent = 'Hide'
+    outputEl.classList.remove('d-none')
+}
+
+
+function hideAllElements() {
     const optionBtns = [...document.getElementsByClassName("optionBtn")]
     optionBtns.forEach(el => {
         if (el.innerText != "Show") el.innerText = "Show"
     })
-
-    // change the text of the button cooresponding with the info being shown to "Hide"
-    e.target.innerText = 'Hide'
-    outputEl.classList.remove('d-none')
-    return
-
 }
