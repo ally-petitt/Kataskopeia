@@ -1,18 +1,30 @@
-import { CollectData } from './collect_data.js'
+import SelectData from './select_data.js'
 
 
-const cd = new CollectData();
-
+// load HTML options and event listeners for them
+document.addEventListener("DOMContentLoaded", loadUserOptions)
 window.onload = () => { setEventListeners() }
 
 
+function loadUserOptions() {
+
+    const options = [
+        "cpu", "storage", "memory", "display", "tabs", "syncedDevices",
+        "closedTabs"
+    ]
+
+    options.forEach(option => {
+
+    })
+
+}
+
+
 function setEventListeners() {
-    const cpuInfo = document.getElementById('cpuInfo');
-    const storageInfo = document.getElementById('storageInfo');
 
     let optionsEls = [ ...document.getElementById('optionsSection').getElementsByClassName('option') ]
 
-    optionsEls.forEach((el) => {
+    optionsEls.forEach(el => {
 
         const optionButton = el.getElementsByTagName('button')[0]
         optionButton.addEventListener("click", handleBtnClick)
@@ -22,41 +34,12 @@ function setEventListeners() {
 
 async function handleBtnClick(e) {
     toggleButton(e);
-
     const outputEl = document.getElementById('output')
-    let info 
 
-    switch(e.target.id){
+    const sd = new SelectData()
+    const info = await sd.getAppropriateInfo(e.target.id)
 
-        case 'cpuInfo': 
-            info = await cd.getCPUInfo();
-            break;
-        case 'storageInfo': 
-            info = await cd.getStorageInfo()
-            break;
-        case 'memoryInfo':
-            info = await cd.getMemoryInfo()
-            break;
-        case 'displayInfo':
-            info = await cd.getDisplayInfo()
-            break;
-        case 'tabsInfo':
-            info = await cd.getTabsInfo()
-            break;
-        case 'windowsInfo':
-            info = await cd.getWindowsInfo()
-            break;
-        case 'syncedDevicesInfo':
-            info = await cd.getSyncedDevicesInfo()
-            break;
-        case 'syncedDevicesInfo':
-            info = await cd.getRecentlyClosedTabs()
-            break;
-
-    }
-    
-    console.log('info')
-    console.log(info)
+    sd.test()
 
     if (info) {
         outputEl.innerHTML = "<pre>" + JSON.stringify(info,null, '\t') + "</pre>"

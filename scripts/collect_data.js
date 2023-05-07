@@ -1,6 +1,4 @@
-class CollectData {
-    // constructor() {
-    // }    
+export default class CollectData {
 
 	async getCPUInfo(){
         return await chrome.system.cpu.getInfo()
@@ -44,4 +42,3 @@ class CollectData {
 
 }
 
-export { CollectData }
