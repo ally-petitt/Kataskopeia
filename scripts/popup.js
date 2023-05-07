@@ -1,62 +1,78 @@
-import { CollectData } from './collect_data.js'
+import SelectData from './data_scripts/select_data.js'
 
 
-const cd = new CollectData();
+// load HTML options and event listeners for them
+document.addEventListener("DOMContentLoaded", loadUserOptions)
 
-window.onload = () => { setEventListeners() }
 
+function loadUserOptions() {
 
-function setEventListeners() {
-    const cpuInfo = document.getElementById('cpuInfo');
-    const storageInfo = document.getElementById('storageInfo');
+    const options = [
+        "cpu", "storage", "memory", "display", "tabs", "synced-devices",
+        "closed-tabs"
+    ]
 
-    let optionsEls = [ ...document.getElementById('optionsSection').getElementsByClassName('option') ]
-
-    optionsEls.forEach((el) => {
-
-        const optionButton = el.getElementsByTagName('button')[0]
-        optionButton.addEventListener("click", handleBtnClick)
+    options.forEach(option => {
+        const userOption = createUserOption(option)
+        document.getElementById('optionsSection').appendChild(userOption)
     })
+}
+
+
+function createUserOption(option) {
+    const optionContainer = document.createElement('div')
+    optionContainer.id = "option"
+    optionContainer.classList.add("option")
+
+    const label = createLabel(option)
+    const btn = createBtn(option)
+
+    optionContainer.appendChild(label)
+    optionContainer.appendChild(btn)
+
+    return optionContainer
+}
+
+
+function formatOption(option) {
+    let words = option.split('-')
+    let wordsFormatted = []
+
+    words.forEach(word => wordsFormatted.push(word[0].toUpperCase() + word.substr(1)))
+    return wordsFormatted.join(' ')
+}
+
+
+function createLabel(option) {
+    const label = document.createElement("label")
+    label.for = option
+    label.textContent = "Show " + formatOption(option) + " Information" 
+
+    return label
+}
+
+
+function createBtn(option) {
+    const btn = document.createElement("button")
+    btn.className = "optionBtn"
+    btn.id = option
+    btn.textContent = "Show" 
+    btn.addEventListener("click", handleBtnClick)
+
+    return btn
 }
 
 
 async function handleBtnClick(e) {
     toggleButton(e);
-
     const outputEl = document.getElementById('output')
-    let info 
 
-    switch(e.target.id){
-
-        case 'cpuInfo': 
-            info = await cd.getCPUInfo();
-            break;
-        case 'storageInfo': 
-            case 'storageInfo': info = await cd.getStorageInfo()
-            break;
-        case 'memoryInfo':
-            case 'memoryInfo': info = await cd.getMemoryInfo()
-            break;
-        case 'displayInfo':
-            case 'displayInfo': info = await cd.getDisplayInfo()
-            break;
-        case 'tabsInfo':
-            case 'tabsInfo': info = await cd.getTabsInfo()
-            break;
-        case 'windowsInfo':
-            case 'windowsInfo': info = await cd.getWindowsInfo()
-            break;
+    const sd = new SelectData()
+    const info = await sd.getAppropriateInfo(e.target.id)
 
 
-    }
-    
-
-    if (info) {
-        outputEl.innerHTML = "<pre>" + JSON.stringify(info,null, '\t') + "</pre>"
-        return
-    }
-    
-    outputEl.innerText = ""
+    info ? outputEl.innerHTML = "<pre>" + JSON.stringify(info,null, '\t') + "</pre>"
+        : outputEl.textContent = "No information returned"
     
 }
 
@@ -64,22 +80,23 @@ async function handleBtnClick(e) {
 function toggleButton(e) {
     const outputEl = document.getElementById('dataOutput')
         
-    if (e.target.innerText == 'Hide') {
-        e.target.innerText = 'Show'
+    if (e.target.textContent == 'Hide') {
 
+        e.target.textContent = 'Show'
         outputEl.classList.add('d-none')
         return 
     }
 
-    // change any buttons that say "Hide" to "Show"
+    hideAllElements()
+
+    e.target.textContent = 'Hide'
+    outputEl.classList.remove('d-none')
+}
+
+
+function hideAllElements() {
     const optionBtns = [...document.getElementsByClassName("optionBtn")]
     optionBtns.forEach(el => {
         if (el.innerText != "Show") el.innerText = "Show"
     })
-
-    // change the text of the button cooresponding with the info being shown to "Hide"
-    e.target.innerText = 'Hide'
-    outputEl.classList.remove('d-none')
-    return
-
 }

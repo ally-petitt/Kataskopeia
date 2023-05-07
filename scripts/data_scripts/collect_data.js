@@ -1,6 +1,4 @@
-class CollectData {
-    // constructor() {
-    // }    
+export default class CollectData {
 
 	async getCPUInfo(){
         return await chrome.system.cpu.getInfo()
@@ -17,7 +15,7 @@ class CollectData {
     async getDisplayInfo() {
         const info = await chrome.system.display.getInfo()
         try {
-            // only works on 
+            // only works on Chrome OS
             const displayLayout = await chrome.system.display.getDisplayLayout()
             return info + displayLayout
         } catch {
@@ -33,7 +31,14 @@ class CollectData {
         return await chrome.windows.getAll({ "populate" :true })
     }
 
+    async getSyncedDevicesInfo() {
+        return await chrome.sessions.getDevices()
+    }
+    
+    async getRecentlyClosedTabs() {
+        return await chrome.sessions.getRecentlyClosed()
+    }
+
 
 }
 
-export { CollectData }
