@@ -27,7 +27,7 @@ to be shown about the user's system.
 Upon clicking the "Show" button corresponding with the "Show Storage Information" label, the
 user's information is displayed in JSON format at the bottom of the extension.
 
-![Picture showing the censored output of one the user's storage capacity as displayed by the extension](./photos/1.png)
+![Picture showing the censored output of one the user's storage capacity as displayed by the extension](./photos/2.png)
 
 
 
