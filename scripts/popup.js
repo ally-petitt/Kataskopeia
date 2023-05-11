@@ -1,4 +1,4 @@
-import SelectData from './data_scripts/select_data.js'
+import CollectData from './collect_data.js'
 
 
 // load HTML options and event listeners for them
@@ -67,7 +67,7 @@ async function handleBtnClick(e) {
     toggleButton(e);
     const outputEl = document.getElementById('output')
 
-    const sd = new SelectData()
+    const sd = new CollectData()
     const info = await sd.getAppropriateInfo(e.target.id)
 
 
