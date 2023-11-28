@@ -1,6 +1,6 @@
 # Kataskopeia
 
-## The Chrome Extenions that *safely* spies on you
+## The Chrome Extension that *safely* spies on you
 
 ## Purpose
 
